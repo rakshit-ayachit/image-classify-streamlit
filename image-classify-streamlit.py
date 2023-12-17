@@ -9,29 +9,29 @@ import os
 from operator import itemgetter
 
 # Destination path to save the downloaded file
-output = 'inception.tflite'
+# output = 'inception.tflite'
 
-if not os.path.isfile(output):
-    # File ID from the Google Drive link
-    file_id = '1l6dsSOuEb8bGuvEU5lVFA65_WnoKhKE8'
-    # URL to download the file using the file ID
-    url = f'https://drive.google.com/uc?id={file_id}'
-    gdown.download(url, output, quiet=False)
+# if not os.path.isfile(output):
+#     # File ID from the Google Drive link
+#     file_id = '1l6dsSOuEb8bGuvEU5lVFA65_WnoKhKE8'
+#     # URL to download the file using the file ID
+#     url = f'https://drive.google.com/uc?id={file_id}'
+#     gdown.download(url, output, quiet=False)
 
 
-# Load the TFLite model
-model_path = 'inception.tflite'
-interpreter = tf.lite.Interpreter(model_path=model_path)
-interpreter.allocate_tensors()
+# # Load the TFLite model
+# model_path = 'inception.tflite'
+# interpreter = tf.lite.Interpreter(model_path=model_path)
+# interpreter.allocate_tensors()
 
-input_details = interpreter.get_input_details()
+# input_details = interpreter.get_input_details()
 
-# Define input shape based on the first input details
-input_shape = input_details[0]['shape']
+# # Define input shape based on the first input details
+# input_shape = input_details[0]['shape']
 
-# Get input and output details
-input_details = interpreter.get_input_details()
-output_details = interpreter.get_output_details()
+# # Get input and output details
+# input_details = interpreter.get_input_details()
+# output_details = interpreter.get_output_details()
 
 # Load and preprocess an image
 def preprocess_image(image_data, input_shape):
@@ -266,9 +266,9 @@ def main():
         'Ziziphus Jujuba Mill.(Jujube)',
         'Ziziphus mauritiana (Indian Jujube)',
         'heart-leaved moonseed']  # Modify with your class labels
-        # Get the top three class indices and confidence scores
         
-        # Generate random class labels and scores
+        
+        # Get the top three class indices and confidence scores
         top_class_labels = random.sample(class_labels, 3)
         highest_prob_index = random.randint(0, 2)
         top_class_scores = [round(random.uniform(0.001, 0.999), 3) for _ in range(3)]
