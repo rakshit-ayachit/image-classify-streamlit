@@ -9,7 +9,7 @@ import os
 # Destination path to save the downloaded file
 model_path = 'inception.tflite'
 
-if not os.path.isfile(output):
+if not os.path.isfile(model_path):
     # File ID from the Google Drive link
     file_id = '1l6dsSOuEb8bGuvEU5lVFA65_WnoKhKE8'
     # URL to download the file using the file ID
