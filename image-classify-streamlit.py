@@ -18,9 +18,13 @@ if not os.path.isfile(output):
 
 
 # Load the TFLite model
-model_path = 'inception.tflite'
-interpreter = tf.lite.Interpreter(model_path=model_path)
-interpreter.allocate_tensors()
+try:
+    interpreter = tf.lite.Interpreter(model_path=model_path)
+    interpreter.allocate_tensors()
+    # Rest of your code related to model operations
+except Exception as e:
+    st.error(f"Error loading the model: {e}")
+
 
 input_details = interpreter.get_input_details()
 
