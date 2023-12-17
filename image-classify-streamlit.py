@@ -21,9 +21,21 @@ if not os.path.isfile(model_path):
 try:
     interpreter = tf.lite.Interpreter(model_path=model_path)
     interpreter.allocate_tensors()
+    
+    # Get input and output details
+    input_details = interpreter.get_input_details()
+    output_details = interpreter.get_output_details()
+    
     # Rest of your code related to model operations
 except Exception as e:
     st.error(f"Error loading the model: {e}")
+
+# If the interpreter has been successfully initialized, continue with the rest of the code
+if 'interpreter' in locals():
+    input_shape = input_details[0]['shape']
+    st.write(f"Input Shape: {input_shape}")
+else:
+    st.error("Model loading failed. Check the model path and TensorFlow Lite setup.")
 
 
 input_details = interpreter.get_input_details()
