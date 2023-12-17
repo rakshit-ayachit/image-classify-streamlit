@@ -43,12 +43,12 @@ def preprocess_image(image_data, input_shape):
     return img
 
 # Make predictions on the input image
-def classify_image(image_data):
-    input_data = preprocess_image(image_data, input_shape)
-    interpreter.set_tensor(input_details[0]['index'], input_data)
-    interpreter.invoke()
-    output_data = interpreter.get_tensor(output_details[0]['index'])
-    return output_data
+# def classify_image(image_data):
+#     input_data = preprocess_image(image_data, input_shape)
+#     interpreter.set_tensor(input_details[0]['index'], input_data)
+#     interpreter.invoke()
+#     output_data = interpreter.get_tensor(output_details[0]['index'])
+#     return output_data
 
 # Streamlit app
 def main():
