@@ -74,7 +74,7 @@ def main():
 
     if uploaded_file is not None:
         image_data = uploaded_file.read()
-        predictions = classify_image(image_data)
+        # predictions = classify_image(image_data)
 
         class_labels = ['Abelmoschus moschatus medik(Ambrette )',
         'Abrus precatorius (Rosary Pea)',
