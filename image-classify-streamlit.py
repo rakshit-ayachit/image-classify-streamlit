@@ -7,14 +7,14 @@ import gdown
 import os
 
 # Destination path to save the downloaded file
-output = 'inception.tflite'
+model_path = 'inception.tflite'
 
 if not os.path.isfile(output):
     # File ID from the Google Drive link
     file_id = '1l6dsSOuEb8bGuvEU5lVFA65_WnoKhKE8'
     # URL to download the file using the file ID
     url = f'https://drive.google.com/uc?id={file_id}'
-    gdown.download(url, output, quiet=False)
+    gdown.download(url, model_path, quiet=False)
 
 
 # Load the TFLite model
